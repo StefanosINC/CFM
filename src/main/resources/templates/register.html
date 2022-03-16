@@ -1,40 +1,27 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
-
-
-
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>Register Form1</title>
-   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CFM</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
 <body>
-  <div layout:fragment="content">
-    <div id="login-one" class="login-one">
-        <form action ="#" th:action="@{doRegister}" th:object="${loginModel}" method="post">
-            <div class="col">
-                <div class="login-one-ico"><i class="fa fa-unlock-alt" id="lockico"></i></div>
-                <div class="form-group">
-                    <div>
-                        <h3 id="heading">Register Form1</h3>
-                    </div>
-                    <tr>
-		<td> User Name: </td><td><input type="text" th:field="*{username}" ></td><td><h5 style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">User Name Error </h5></td>
-		
-		</tr>
-                   <tr>
-			<td> Password: </td><td><input type ="password" th:field="*{password}" ></td><td><h5 style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error </h5></td>
-			</tr>
-                  <tr>
-			<td colspan="3"><input type="submit" value="Sumbit"/></td>
-			</tr>
-                    </table>
-                </div>
-            </div>
-        </form>
-    </div>
-  </div>
+    <section class="register-photo" style="background-color: transparent;color: var(--bs-indigo);">
+        <h1 style="height: 5.25px;width: 939px;color: var(--bs-gray-900);margin: 114px;padding: -47px;">&nbsp; &nbsp; &nbsp; <strong><em>Stefanos Sophocleous CFM Coding Assessment</em></strong></h1>
+        <div class="form-container" style="margin-top: 40px;">
+            <form method="post" action="afterRegister.html" style="height: 337px;width: 829.188px;margin: -105px;padding: 54px 60px;">
+                <h2 class="text-center">Register Form</h2>
+                <div class="form-group mb-3"><input class="form-control" type="email" name="email" placeholder="Correo"></div>
+   
+
+                
+                <div class="form-group mb-3"><button class="btn btn-primary d-block w-100" id="submitButton" type="submit" style="color: rgb(255,255,255);background-color: #00b5a8;">Register</button></div><a class="already" href="login.html">Already have an account? Click the link below to login</a>
+            </form>
+        </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>

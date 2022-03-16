@@ -74,6 +74,10 @@ public class AddressBookDataService implements AddressBookDataInterface <Address
 			return contact;
 					
 		}
+//		catch(ArrayIndexOutofBoundsException e) {
+//			System.out.println("There is no Contact with that ID");
+//			return null;
+//		}
 		catch(Exception e) {
 			e.printStackTrace();
 			return null;
