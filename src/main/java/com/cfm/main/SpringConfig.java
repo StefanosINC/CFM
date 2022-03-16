@@ -9,7 +9,11 @@ import com.cfm.business.UserModelBusinessInterface;
 import com.cfm.business.UserModelBusinessService;
 
 
-
+/*
+ *SpringConfig class
+ *This class is responsible for creating the Spring Beans for the Spring Boot Framework! 
+ * 
+ */
 public class SpringConfig {
 
 	

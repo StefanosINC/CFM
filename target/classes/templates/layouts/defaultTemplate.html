@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>PattyBoiCLC</title>
+
+
+<!--This script was pulled from the create Products Page, So far Default template has been added to create product, and  Edit product -->
+<meta name="description" content="Welcome to PattyBoiCLC. Were creating the best cloud application in the world!">
+<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+<link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+<link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+<link rel="stylesheet" href="../assets/css/styles.min.css">
+
+	<link rel="stylesheet" href="../static/assets/css/gradient-navbar-1.css">
+    <link rel="stylesheet" href="../static/assets/css/gradient-navbar.css">
+    <link rel="stylesheet" href="../static/assets/css/Login-screen.css">
+    <link rel="stylesheet" href="../static/assets/css/Pages-Navbar.css">
+
+<!--This is for the orders page -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
+
+
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="../assets/js/script.min.js"></script>
+</head>
+
+<body>
+<div align="center">
+	<!--Header Fragment -->
+<div th:replace="layouts/navbar :: header">My Header</div>
+
+<section layout:fragment="content">
+	<p>My Body Contents</p>
+</section>
+
+
+<!--imports custom JavaScript-->
+<script type="text/javascript" th:src="@{/javascript/app.js}"></script>
+</div>
+</body>
+
+</html>

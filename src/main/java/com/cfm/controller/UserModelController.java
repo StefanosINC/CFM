@@ -20,7 +20,7 @@ import com.cfm.models.UserModel;
 
 
 @Controller
-@RequestMapping("/User")
+@RequestMapping("/")
 public class UserModelController {
 
 	@Autowired
@@ -32,7 +32,7 @@ public class UserModelController {
 	@GetMapping(path= {"/"})
 	public String RegisterForm(Model model)
 	{
-		model.addAttribute("title","Register Form");
+	
 		model.addAttribute("UserModel", new UserModel());
 		return "register";
 	}
@@ -49,10 +49,12 @@ public class UserModelController {
 		service.Register(user);
 		System.out.println(user);
 		model.addAttribute("title", " Login Form");
-		
+		model.addAttribute("UserModel", new UserModel());
 		return "login";
 		
 	}
+	
+	
 	
 	
 	@GetMapping(path= "/login")
@@ -86,7 +88,7 @@ public class UserModelController {
 		model.addAttribute("title", "AddressBook");
 		model.addAttribute("contacts", contacts);
 		
-		return "AddressBook";
+		return "ContactUI";
 		
 	}
 	

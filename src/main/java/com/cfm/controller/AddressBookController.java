@@ -27,8 +27,12 @@ public class AddressBookController {
 
 	@GetMapping("/")
 	public String DisplayBook(Model model) {
-		model.addAttribute("contact", bookservice.FindAllContacts());
+	
+		List<AddressBookModel> contact = bookservice.FindAllContacts();
 		
+		//Display updates Order View
+		model.addAttribute("title", "Contacts");
+		model.addAttribute("contact", contact);
 		return "ContactUI";
 	}
 	
