@@ -4,6 +4,7 @@ package com.cfm.models;
  * UserModel Class that is going to hold the variables for the User
  * This class will need a relationship with the addressbook
  */
+
 public class UserModel {
 
 
@@ -26,6 +27,11 @@ public class UserModel {
 	/*
 	 * Getters and Setters
 	 */
+
+	public UserModel() {
+		// TODO Auto-generated constructor stub
+	}
+
 
 	public String getUsername() {
 		return username;
