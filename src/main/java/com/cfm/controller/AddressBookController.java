@@ -32,11 +32,11 @@ public class AddressBookController {
 	@GetMapping("/")
 	public String DisplayBook(Model model) {
 	
-		List<AddressBookModel> contact = bookservice.FindAllContacts();
+		List<AddressBookModel> contacts = bookservice.FindAllContacts();
 		
-		//Display updates Order View
+
 		model.addAttribute("title", "Contacts");
-		model.addAttribute("addressBookModel", contact);
+		model.addAttribute("contacts", contacts);
 		return "book";
 	}
 	
@@ -64,7 +64,7 @@ public class AddressBookController {
 		List<AddressBookModel> contacts = bookservice.FindAllContacts();
 		
 		
-		model.addAttribute("addressBookModel", contacts);
+		model.addAttribute("contacts", contacts);
 		System.out.println(contacts.size());
 		
 		return "book";
@@ -114,7 +114,7 @@ public class AddressBookController {
 		AddressBookModel EditContact = bookservice.findById(id);
 			System.out.println("EditContact info Incomming: " + EditContact.getId());
 			model.addAttribute("title", "Edit order");			
-			model.addAttribute("contact", EditContact);		
+			model.addAttribute("addressBookModel", EditContact);		
 		
 		
 		
@@ -124,13 +124,13 @@ public class AddressBookController {
 	
 	
 		@PostMapping("/edit")
-		public String edit(@RequestParam("id") int id, AddressBookModel book, Model model)
+		public String edit(@RequestParam("id") int id, AddressBookModel addressBookModel, Model model)
 		{
 			
 			
-			book.setId(id);
+			addressBookModel.setId(id);
 			
-			bookservice.update(book);	
+			bookservice.update(addressBookModel);	
 			
 			List<AddressBookModel> contacts = bookservice.FindAllContacts();
 			
