@@ -14,6 +14,9 @@ public interface AddressBookModelBusinessInterface {
 	
 	public boolean update( AddressBookModel contact);
 	
-	public long RemoveContact(int id);
+	public int RemoveContact(int id);
 	
+	public void init();
+	
+	public void destroy();
 }

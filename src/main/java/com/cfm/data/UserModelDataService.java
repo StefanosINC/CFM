@@ -57,9 +57,8 @@ public class UserModelDataService implements UserModelDataInterface {
 
 	@Override
 	public boolean Login(UserModel user) {
-	
-		String sql = "SELECT * FROM users WHERE USERNAME = '" + user.getUsername() + "' AND PASSWORD = '"
-                + user.getPassword() + " ";
+		  String sql = "SELECT * FROM users WHERE USERNAME = '" + user.getUsername() + "' AND PASSWORD = '"
+	                + user.getPassword() + "'";
 	 try {
 	
 		 SqlRowSet LoginRowSet = jdbcTemplateObject.queryForRowSet(sql);

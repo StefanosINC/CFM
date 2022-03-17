@@ -9,11 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({"com.cfm"})
 @SpringBootApplication
-public class Main {
+public class MainTests {
 
 	public static void main(String[] args) {
 		System.out.println("Hero!");
-		SpringApplication.run(Main.class, args);
+		SpringApplication.run(MainTests.class, args);
 	}
 
 }

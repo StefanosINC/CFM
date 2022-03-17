@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.cfm.models.AddressBookModel;
 
 @Service
-public class AddressBookDataService implements AddressBookDataInterface <AddressBookModel> {
+public class AddressBookDataService implements AddressBookDataInterface {
 
 	// ?
 	private DataSource dataSource;
@@ -120,7 +120,7 @@ public class AddressBookDataService implements AddressBookDataInterface <Address
 
 
 	@Override
-	public long RemoveContact(int id) {
+	public int RemoveContact(int id) {
 		
 		return jdbcTemplateObject.update("DELETE FROM ADDRESSBOOK WHERE id =?", id);
 		

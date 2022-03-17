@@ -2,16 +2,18 @@ package com.cfm.data;
 
 import java.util.List;
 
-public interface AddressBookDataInterface <T>{
+import com.cfm.models.AddressBookModel;
+
+public interface AddressBookDataInterface{
 
 	
-	public List<T> FindAllContacts();
+	public List<AddressBookModel> FindAllContacts();
 	
-	public T findById(int id);
+	public AddressBookModel findById(int id);
 
-	public boolean create(T contact);
+	public boolean create(AddressBookModel contact);
 	
-	public boolean update(T contact);
+	public boolean update(AddressBookModel contact);
 	
-	public long RemoveContact(int id);
+	public int RemoveContact(int id);
 }

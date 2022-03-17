@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cfm.business.AddressBookModelBusinessInterface;
+import com.cfm.business.AddressBookModelBusinessService;
 import com.cfm.business.UserModelBusinessInterface;
+import com.cfm.business.UserModelBusinessService;
 import com.cfm.models.AddressBookModel;
 import com.cfm.models.UserModel;
 
@@ -27,7 +29,7 @@ public class UserModelController {
 	private UserModelBusinessInterface service;
 	
 	@Autowired 
-	AddressBookModelBusinessInterface AddressBookService;
+	AddressBookModelBusinessService AddressBookService;
 	
 	@GetMapping(path= {"/"})
 	public String RegisterForm(Model model)
@@ -48,8 +50,9 @@ public class UserModelController {
 		
 		service.Register(user);
 		System.out.println(user);
+		
 		model.addAttribute("title", " Login Form");
-		model.addAttribute("UserModel", new UserModel());
+		model.addAttribute("UserModel", user);
 		return "login";
 		
 	}
@@ -61,13 +64,13 @@ public class UserModelController {
 	public String displayLogin(Model model) {
 		
 		model.addAttribute("title","Login Form");
-		model.addAttribute("UserModel", new UserModel());
+		model.addAttribute("loginModel", new UserModel());
 		return "login";
 	
 		
 	}
 	
-	@PostMapping("/dologin")
+	@PostMapping("/doLogin")
 	public String LoginForm(@Valid UserModel user, BindingResult BindingResult, Model model) {
 		
 		//Check for validation Errors
@@ -77,19 +80,26 @@ public class UserModelController {
 			return "login";
 		}
 		
-		//If credentials do not match
-		if(service.Login(user) == false) {
-			return "login";
-			
-		}
 		
-		List<AddressBookModel> contacts = AddressBookService.FindAllContacts();
+//		if(service.Login(user) == false) {
+//			System.out.println("Login failed");
+//			
+//			return "login";
+//		
+//	}
+	
 		
+		
+		
+		List<AddressBookModel> contact = AddressBookService.FindAllContacts();
+	
+	
 		model.addAttribute("title", "AddressBook");
-		model.addAttribute("contacts", contacts);
+		model.addAttribute("contacts", contact);
 		
-		return "ContactUI";
+		System.out.println(contact.size());
+		return "book";
 		
 	}
-	
-}
+	}
+

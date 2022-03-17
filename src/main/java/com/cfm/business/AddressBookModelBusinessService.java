@@ -14,7 +14,7 @@ public class AddressBookModelBusinessService implements AddressBookModelBusiness
 
 	
 	@Autowired
-	private AddressBookDataInterface<AddressBookModel> service;
+	private AddressBookDataInterface service;
 	
 	@Override
 	public List<AddressBookModel> FindAllContacts() {
@@ -42,9 +42,21 @@ public class AddressBookModelBusinessService implements AddressBookModelBusiness
 	}
 
 	@Override
-	public long RemoveContact(int id) {
+	public int RemoveContact(int id) {
 		
 		return service.RemoveContact(id);
+		
+	}
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void destroy() {
+		// TODO Auto-generated method stub
 		
 	}
 

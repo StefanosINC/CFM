@@ -1,33 +1,17 @@
 <html xmls:th="http://thymeleaf.org" xmls:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<div th:fragment="header">
-	<div align="center">
-	
-</div>
-<body style="background-color:#2A324B" text="white">
-<div class="bs-example">
-	<nav class="navbar navbar-default">
-	<!--Brand and toggle get grouped for better mobile display -->
-	<div class="navbar-header">
-		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-		<span class="sr-only">Toggle navigation</span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-	</button>
-	<a href="/" class="navbar-brand">Login</a>
-	</div>
-	
-	<div id="navbarCollapse" class="collapse navbar-collapse">
-		<ul class="nav navbar-nav">
-		<li><a href=#>Home</a></li>
-		<li><a href=#>Meet the Developers</a></li>
-	
-		</ul>
-	<ul>
-	</div>
-	</nav>
-</div>
 
+
+    <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
+        <div class="container-fluid"><a class="navbar-brand" href="#"></a><img src="../../assets/img/CFM.png" style="width: 65px;"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active">CFM Take Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
 <!--Page Title and Log --> 
 
 <h2 style=color:white th:text="${title}"> Default Message Text</h2><br/>
@@ -35,7 +19,6 @@
 
 <!--Common Footer Fragment -->
 <div th:fragment="footer">
-	<h5 style="color:white; text-align:center;position:fixed;bottom: 0;width:100%;">App developed by Patrick Ulmer and Stefanos</h5>
 </div>
 </html>
 

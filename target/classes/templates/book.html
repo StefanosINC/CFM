@@ -15,22 +15,27 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link active" href="#">AddressBook</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Second Item</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Third Item</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/">Back</a></li>
+                 
                 </ul>
             </div>
         </div>
     </nav><div class="bootstrap_datatables">
+ 
 <div class="container py-5">
   <header class="text-center text-black">
     <h1 class="display-4">Address Book</h1>
   </header>
+  
+  
   <div class="row py-5">
     <div class="col-lg-10 mx-auto">
       <div class="card rounded shadow border-0">
         <div class="card-body p-5 bg-white rounded">
           <div class="table-responsive">
             <table id="example" style="width:100%" class="table table-striped table-bordered">
+            
+            <a th:href ="@{/AddressBook/CreateContactForm}"> Create Contact </a>
               <thead>
                 <tr>
                 
@@ -41,15 +46,21 @@
                   <th>Address</th>
                   <th>Edit</th>
                   <th>Delete<th>
+                  
                 </tr>
               </thead>
               <tbody>
-                <tr th:each="contact : ${contact}">
+                <tr th:each="contact : ${contacts}">
                <td style="text-align: center;" th:text="${contact.firstname}">FirstName</td>
                 <td style="text-align: center;"th:text="${contact.lastname}">LastName</td>
                 <td style="text-align: center;"th:text="${contact.phone}">Phone</td>
                <td style="text-align: center;"th:text="${contact.address}">Address</td>
              
+             <td>
+             <a th:href ="@{/AddressBook/CreateContact}">Edit </a>
+             </td>
+             <td>
+              <a th:href ="@{/AddressBook/delete(id=${contact.id})}"> Delete </a>
                 </tr>
               </tbody>
             </table>

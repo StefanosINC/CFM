@@ -1,5 +1,8 @@
 package com.cfm.models;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /*
  * 
  * This is the AddressBookModel Class
@@ -10,10 +13,22 @@ public class AddressBookModel {
 
 	
 	private long id;
-	
+	@NotNull(message="Firstname is a required field")
+	@Size(min=1, max=32, message="Firstname must be between 1 and 32 charachters")
 	private String firstname;
+	
+	
+	@NotNull(message="Lastname is a required field")
+	@Size(min=1, max=32, message="Lastname must be between 1 and 32 charachters")
 	private String lastname;
+	
+	@NotNull(message="Phone is a required field")
+	@Size(min=1, max=32, message="Phone must be between 1 and 32 charachters")
 	private String phone;
+	
+	
+	@NotNull(message="Phone is a required field")
+	@Size(min=1, max=32, message="Phone must be between 1 and 32 charachters")
 	private String address;
 	
 	
@@ -83,6 +98,12 @@ public class AddressBookModel {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "AddressBookModel [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", phone=" + phone
+				+ ", address=" + address + "]";
 	}
 	
 	
