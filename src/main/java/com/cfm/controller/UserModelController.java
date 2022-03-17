@@ -35,24 +35,26 @@ public class UserModelController {
 	public String RegisterForm(Model model)
 	{
 	
-		model.addAttribute("UserModel", new UserModel());
+		model.addAttribute("userModel", new UserModel());
 		return "register";
 	}
 	
 	
 	@PostMapping("/doRegister")
-	public String doRegister(@Valid UserModel user, BindingResult BindingResult, Model model) {
+	public String doRegister(@Valid UserModel UserModel, BindingResult BindingResult, Model model) {
 		
 		if(BindingResult.hasErrors()) {
-			model.addAttribute("title", "Register Form");
+			
+			model.addAttribute("title", "Register Form");	
+			System.out.println(" we here");
 			return "register";
 		}
 		
-		service.Register(user);
-		System.out.println(user);
+		service.Register(UserModel);
+		System.out.println(UserModel);
 		
 		model.addAttribute("title", " Login Form");
-		model.addAttribute("UserModel", user);
+		model.addAttribute("userModel", UserModel);
 		return "login";
 		
 	}
@@ -64,29 +66,29 @@ public class UserModelController {
 	public String displayLogin(Model model) {
 		
 		model.addAttribute("title","Login Form");
-		model.addAttribute("loginModel", new UserModel());
+		model.addAttribute("userModel", new UserModel());
 		return "login";
 	
 		
 	}
 	
 	@PostMapping("/doLogin")
-	public String LoginForm(@Valid UserModel user, BindingResult BindingResult, Model model) {
+	public String LoginForm(@Valid UserModel UserModel, BindingResult BindingResult, Model model) {
 		
 		//Check for validation Errors
 		if(BindingResult.hasErrors())
 		{
-			model.addAttribute("title", "Login Form");
+			model.addAttribute("title", "Form");
 			return "login";
 		}
 		
 		
-//		if(service.Login(user) == false) {
-//			System.out.println("Login failed");
-//			
-//			return "login";
-//		
-//	}
+		if(service.Login(UserModel) == false) {
+			model.addAttribute("title", "Credentials are Incorrect");
+			System.out.println("fail");
+			return "login";
+		
+	}
 	
 		
 		

@@ -27,7 +27,7 @@
         
         
         
-           <form action ="#" th:action="@{doLogin}" th:object="${UserModel}" method="post" style="height: 525px;">
+           <form action ="#" th:action="@{doLogin}" th:object="${userModel}" method="post" style="height: 525px;">
 					<table>
                 <h2 class="text-center">Insert Login Credentials Below </h2>
                 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{username}" placeholder="Username"></div>
@@ -39,7 +39,13 @@
                 style="color: rgb(255,255,255);background-color: #00b5a8;">Login</button></div>
                 <a class="already" href="/">Already have an account? Click here to login</a>
                 </table>
+                
+                <title th:object="${title}"></title>
+            	
             </form>
+              
+                <title th:object="${title}"></title>
+          
         </div>
     </section>
     <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>

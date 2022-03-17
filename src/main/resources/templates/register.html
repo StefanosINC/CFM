@@ -6,7 +6,7 @@
     <title>CFM</title>
     <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/styles.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
 </head>
 
 <body>
@@ -16,28 +16,33 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link active">CFM Take Home</a></li>
                 
-                    <li class="nav-item"><a class="nav-link active" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/login">Register</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <section class="register-photo" style="background-color: transparent;">
         <div class="form-container" style="margin-top: 40px;">
-           
-           <form action ="#" th:action="@{doRegister}" th:object="${UserModel}" method="post" style="height: 525px;">
-			<table>
-                <h2 class="text-center"> Register Credentials Below </h2>
-                <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{username}" placeholder="Username"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">User Name Error </h5></td>
-		
+        
+        
    
-   				 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{password}"placeholder="Password"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">User Name Error </h5></td>
-		
+           <form action ="#" th:action="@{doRegister}" th:object="${userModel}" method="post" style="height: 525px;">
+					<table>
+                <h2 class="text-center">Insert Register Credentials Below </h2>
+                <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{username}" placeholder="Username"></div>		
+   
+   				 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{password}"placeholder="Password"></div>		
     
 			
                 <div class="form-group mb-3"><button class="btn btn-primary d-block w-100" id="submitButton" type="submit"
-                style="color: rgb(255,255,255);background-color: #00b5a8;">Register</button></div>
-                <a class="already" href="/">Already have an account? Click here to login</a>
+                style="color: rgb(255,255,255);background-color: #00b5a8;">Login</button></div>
+                <a class="already" href="/">Already have an account? Click here to Register</a>
                 </table>
+                <title>Test</title>
+                <div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+		<div th:each="err : ${#fields.errors('*')}">
+			<span style="color:red" th:text="${err}" class="fieldError"></span>			
+		</div>
             </form>
         </div>
     </section>
@@ -45,6 +50,6 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="../../assets/js/script.min.js"></script>
-</body>
+		</body>
 
-</html>
+		</html>
