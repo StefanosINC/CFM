@@ -87,7 +87,7 @@ public class AddressBookController {
 			System.out.println(id);
 		
 		
-		return "DeleteContact";
+		return "DeleteContact2";
 	}
 	
 	@PostMapping("/processdelete")
