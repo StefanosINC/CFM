@@ -27,7 +27,7 @@
     <h1 class="display-4">Address Book</h1>
   </header>
   
-  
+   	
   <div class="row py-5">
     <div class="col-lg-10 mx-auto">
       <div class="card rounded shadow border-0">
@@ -57,9 +57,11 @@
                <td style="text-align: center;"th:text="${contact.address}">Address</td>
              
              <td>
-             <a th:href ="@{/AddressBook/CreateContact}">Edit </a>
+             <a th:href ="@{/AddressBook/editForm(id=${contact.id})}">Edit </a>
              </td>
              <td>
+             
+          
               <a th:href ="@{/AddressBook/delete(id=${contact.id})}"> Delete </a>
                 </tr>
               </tbody>

@@ -101,10 +101,10 @@ public class AddressBookDataService implements AddressBookDataInterface {
 	@Override
 	public boolean update(AddressBookModel contact) {
 		
-		String sql = "UPDATE ADRESSBOOK SET FIRSTNAME = ?, LASTNAME = ?, PHONE = ? , ADDRESS = ? WHERE id = ?";
+		String sql = "UPDATE ADDRESSBOOK SET FIRSTNAME = ?, LASTNAME = ?, PHONE = ?, ADDRESS = ? WHERE id = ?";
 		
 		try {
-			int UpdateRow = jdbcTemplateObject.update(sql, contact.getFirstname(), contact.getLastname(), contact.getPhone(), contact.getAddress());
+			int UpdateRow = jdbcTemplateObject.update(sql, contact.getFirstname(), contact.getLastname(), contact.getPhone(), contact.getAddress(), contact.getId());
 			return UpdateRow == 1 ? true : false;
 			
 		}

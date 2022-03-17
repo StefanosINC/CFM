@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 
 public class UserModel {
 
+
 	@NotNull(message="Username is a required field")
 	@Size(min=1, max=32, message="Username must be between 1 and 32 charachters")
 	private String username;
@@ -24,8 +25,9 @@ public class UserModel {
 	/*
 	 * Constructor for the UserModel
 	 */
-	public UserModel(String username, String password) {
+	public UserModel( String username, String password) {
 		super();
+	
 		this.username = username;
 		this.password = password;
 	}

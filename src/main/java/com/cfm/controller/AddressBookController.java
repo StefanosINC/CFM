@@ -105,8 +105,42 @@ public class AddressBookController {
 		return "book";
 	}
 	
+	
+	
+	@GetMapping("/editForm")
+	public String displayEditForm(@RequestParam("id") int id, Model model)
+	{
+		
+		AddressBookModel EditContact = bookservice.findById(id);
+			System.out.println("EditContact info Incomming: " + EditContact.getId());
+			model.addAttribute("title", "Edit order");			
+			model.addAttribute("contact", EditContact);		
+		
+		
+		
+		return "EditContact";
+	}
+	
+	
+	
+		@PostMapping("/edit")
+		public String edit(@RequestParam("id") int id, AddressBookModel book, Model model)
+		{
+			
+			
+			book.setId(id);
+			
+			bookservice.update(book);	
+			
+			List<AddressBookModel> contacts = bookservice.FindAllContacts();
+			
+			model.addAttribute("contacts", contacts);
+			return "book";
+		
+				
+	}
 }	
 	
-	
+
 	
 
