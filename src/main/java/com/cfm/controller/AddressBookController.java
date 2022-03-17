@@ -36,35 +36,35 @@ public class AddressBookController {
 		
 		//Display updates Order View
 		model.addAttribute("title", "Contacts");
-		model.addAttribute("contact", contact);
+		model.addAttribute("addressBookModel", contact);
 		return "book";
 	}
 	
 	@GetMapping("/CreateContactForm")
 	public String ContactForm(Model model) {
 		
-		model.addAttribute("contacts", new AddressBookModel());
+		model.addAttribute("addressBookModel", new AddressBookModel());
 		return "CreateContact";
 	}
 	
 	
 	@PostMapping("/doCreateContact")
-	public String CreateContact(@Valid AddressBookModel contact, BindingResult bindingResult, Model model) {
+	public String CreateContact(@Valid AddressBookModel addressBookModel, BindingResult bindingResult, Model model) {
 		
 		
 		if (bindingResult.hasErrors())
 		{
 			model.addAttribute("title", "Create Contact Form");
-			return "CreateContactForm";
+			System.out.println("Test");
+			return "CreateContact";
 		}
 		
-		bookservice.create(contact);
+		bookservice.create(addressBookModel);
 		
 		List<AddressBookModel> contacts = bookservice.FindAllContacts();
 		
-		//Display updates Order View
-		model.addAttribute("title", "Orders");
-		model.addAttribute("contacts", contacts);
+		
+		model.addAttribute("addressBookModel", contacts);
 		System.out.println(contacts.size());
 		
 		return "book";

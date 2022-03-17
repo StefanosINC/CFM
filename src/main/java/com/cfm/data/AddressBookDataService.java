@@ -41,11 +41,13 @@ public class AddressBookDataService implements AddressBookDataInterface {
 			while(srs.next())
 			{
 				contacts.add(new AddressBookModel(
-						srs.getInt("ID"),
-						srs.getString("FIRSTNAME"),
-						srs.getString("LASTNAME"),
+						srs.getLong("ID"),
+						srs.getString("LOCATIONNAME"),
 						srs.getString("PHONE"),
-						srs.getString("ADDRESS")));
+						srs.getString("STREET"),
+						srs.getString("ZIPCODE"),
+						srs.getString("CITY"),
+						srs.getString("STATE")));
 					
 			}
 		}
@@ -66,11 +68,14 @@ public class AddressBookDataService implements AddressBookDataInterface {
 			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, id);
 			srs.next();
 			contact = new AddressBookModel(	
-						srs.getInt("ID"),
-						srs.getString("FIRSTNAME"),
-						srs.getString("LASTNAME"),
-						srs.getString("PHONE"),
-						srs.getString("ADDRESS"));
+					srs.getLong("ID"),
+					srs.getString("LOCATIONNAME"),
+					srs.getString("PHONE"),
+					srs.getString("STREET"),
+					srs.getString("ZIPCODE"),
+					srs.getString("CITY"),
+					srs.getString("STATE"));
+				
 			return contact;
 					
 		}
@@ -83,9 +88,9 @@ public class AddressBookDataService implements AddressBookDataInterface {
 	@Override
 	public boolean create(AddressBookModel contact) {
 	
-		String sql = "INSERT INTO ADDRESSBOOK(FIRSTNAME, LASTNAME, PHONE, ADDRESS) VALUES (?, ? , ? , ?)";
+		String sql = "INSERT INTO ADDRESSBOOK(LOCATIONNAME, PHONE, STREET, ZIPCODE, CITY, STATE) VALUES (?, ? , ? ,?, ?, ?)";
 		try {
-			int NewRow = jdbcTemplateObject.update(sql, contact.getFirstname(), contact.getLastname(), contact.getPhone(), contact.getAddress());
+			int NewRow = jdbcTemplateObject.update(sql, contact.getLocationname(), contact.getPhone(), contact.getStreet(), contact.getZipcode(), contact.getCity(), contact.getState());
 			return NewRow == 1 ? true : false;
 			
 		}
@@ -101,10 +106,10 @@ public class AddressBookDataService implements AddressBookDataInterface {
 	@Override
 	public boolean update(AddressBookModel contact) {
 		
-		String sql = "UPDATE ADDRESSBOOK SET FIRSTNAME = ?, LASTNAME = ?, PHONE = ?, ADDRESS = ? WHERE id = ?";
+		String sql = "UPDATE ADDRESSBOOK SET LOCATIONNAME = ?, PHONE = ?, STREET = ?, ZIPCODE = ?, CITY = ?, STATE =? WHERE id = ?";
 		
 		try {
-			int UpdateRow = jdbcTemplateObject.update(sql, contact.getFirstname(), contact.getLastname(), contact.getPhone(), contact.getAddress(), contact.getId());
+			int UpdateRow = jdbcTemplateObject.update(sql,  contact.getLocationname(), contact.getPhone(), contact.getStreet(), contact.getZipcode(), contact.getCity(), contact.getState(), contact.getId());
 			return UpdateRow == 1 ? true : false;
 			
 		}

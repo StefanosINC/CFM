@@ -27,23 +27,29 @@
            
            
            
-           <form action ="#" th:action="@{edit}" th:object="${contact}" method="post" style="height: 525px;">
+           <form action ="#" th:action="@{edit}" th:object="${addressBookModel}" method="post" style="height: 525px;">
            	<input type="hidden" name="id" th:field="*{id}"> 
       						
 			<table>
 			
                 <h2 class="text-center"> Edit Contact Form </h2>
-                <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{firstname}" placeholder="firstname"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">User Name Error </h5></td>
+               <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{locationname}" placeholder="locationname"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('locationname')}" th:errors="*{locationname}">Location Name Error </h5></td>
 		
    
-   				 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{lastname}"placeholder="lastname"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">User Name Error </h5></td>
-		
-    			     <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{phone}" placeholder="phone"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">User Name Error </h5></td>
+   			
+    			     <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{phone}" placeholder="phone"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"> Phone Error </h5></td>
+			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{street}"placeholder="street"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"> Street Error </h5></td>
 		
    
-   				 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{address}"placeholder="address"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">User Name Error </h5></td>
-		
-    
+   				 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{zipcode}"placeholder="zipcode"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('zipcode')}" th:errors="*{zipcode}">zipcode Name Error </h5></td>
+			
+    			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{city}"placeholder="city"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">city Name Error </h5></td>
+			
+    			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{state}"placeholder="state"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">state Name Error </h5></td>
+			
+			
+                <div class="form-group mb-3">
+                	
 			
                 <div class="form-group mb-3">
                 	<button class="btn btn-primary d-block w-100" id="submitButton" type="submit" style="color: rgb(255,255,255);background-color: #00b5a8;">Edit Contact </button>
@@ -55,6 +61,12 @@
                 				<!-- This doesnt work yet -->
                 <a class="already" href="/AddressBook">Want to go back? Click here to do so!/a>
                 </table>
+                
+                
+                <div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+		<div th:each="err : ${#fields.errors('*')}">
+			<span style="color:red" th:text="${err}" class="fieldError"></span>			
+		</div>
             </form>
         </div>
     </section>

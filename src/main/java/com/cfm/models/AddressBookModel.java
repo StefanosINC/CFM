@@ -13,98 +13,140 @@ public class AddressBookModel {
 
 	
 	private long id;
-	@NotNull(message="Firstname is a required field")
-	@Size(min=1, max=32, message="Firstname must be between 1 and 32 charachters")
-	private String firstname;
-	
-	
-	@NotNull(message="Lastname is a required field")
-	@Size(min=1, max=32, message="Lastname must be between 1 and 32 charachters")
-	private String lastname;
+	@NotNull(message="LocationName is a required field")
+	@Size(min=1, max=32, message="LocationName must be between 1 and 32 charachters")
+	private String locationname;
 	
 	@NotNull(message="Phone is a required field")
 	@Size(min=1, max=32, message="Phone must be between 1 and 32 charachters")
 	private String phone;
 	
-	
-	@NotNull(message="Phone is a required field")
-	@Size(min=1, max=32, message="Phone must be between 1 and 32 charachters")
-	private String address;
-	
-	
-	
-	
-	
-	/*
-	 * AddressBookModel Constructor
-	 */
-	public AddressBookModel(long id, String firstname, String lastname, String phone, String address) {
-		super();
-		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.phone = phone;
-		this.address = address;
-	}
-	
-	/*
-	 * AddressBookModel Default Constructor
-	 */
-	public AddressBookModel() {
-		
-	}
 
 	
-	/*
-	 * 
-	 * Getters and Setters
-	 */
+	@NotNull(message="Street is a required field")
+	@Size(min=1, max=32, message="Street must be between 1 and 32 charachters")
+	private String street;
 	
-	public long getId() {
-		return id;
-	}
+	@NotNull(message="Street is a required field")
+	@Size(min=1, max=32, message="Street must be between 1 and 32 charachters")
+	private String zipcode;
+	
+	@NotNull(message="City is a required field")
+	@Size(min=1, max=32, message="City must be between 1 and 32 charachters")
+	private String city;
+	
+	@NotNull(message="State is a required field")
+	@Size(min=1, max=32, message="State must be between 1 and 32 charachters")
+	private String state;
 
-	public void setId(long id) {
-		this.id = id;
-	}
+	
+	
+public AddressBookModel(long id, String locationname, String phone, String street, String zipcode,
+		String city, String state) {
+	super();
+	this.id = id;
+	this.locationname = locationname;
+	this.phone = phone;
+	this.street = street;
+	this.zipcode = zipcode;
+	this.city = city;
+	this.state = state;
+}
+public AddressBookModel() {
+	
+}
 
-	public String getFirstname() {
-		return firstname;
-	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
 
-	public String getLastname() {
-		return lastname;
-	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
 
-	public String getPhone() {
-		return phone;
-	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
 
-	public String getAddress() {
-		return address;
-	}
+public long getId() {
+	return id;
+}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
-	@Override
-	public String toString() {
-		return "AddressBookModel [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", phone=" + phone
-				+ ", address=" + address + "]";
-	}
+
+public void setId(long id) {
+	this.id = id;
+}
+
+
+
+public String getLocationname() {
+	return locationname;
+}
+
+
+
+public void setLocationname(String locationname) {
+	this.locationname = locationname;
+}
+
+
+
+public String getPhone() {
+	return phone;
+}
+
+
+
+public void setPhone(String phone) {
+	this.phone = phone;
+}
+
+
+
+public String getStreet() {
+	return street;
+}
+
+
+
+public void setStreet(String street) {
+	this.street = street;
+}
+
+
+
+public String getZipcode() {
+	return zipcode;
+}
+
+
+
+public void setZipcode(String zipcode) {
+	this.zipcode = zipcode;
+}
+
+
+
+public String getCity() {
+	return city;
+}
+
+
+
+public void setCity(String city) {
+	this.city = city;
+}
+
+
+
+public String getState() {
+	return state;
+}
+
+
+
+public void setState(String state) {
+	this.state = state;
+}
+	
+	
+	
+	
 	
 	
 }
