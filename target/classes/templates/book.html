@@ -1,12 +1,5 @@
 <html xmls:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>CFM</title>
-
-</head>
-
 <body>
     <div class="bootstrap_datatables">
  
@@ -14,8 +7,7 @@
   <header class="text-center text-black">
     <h1 class="display-4">Address Book</h1>
   </header>
-  
-   	
+ 
   <div class="row py-5">
     <div class="col-lg-10 mx-auto">
       <div class="card rounded shadow border-0">
@@ -49,15 +41,10 @@
                <td style="text-align: center;"th:text="${contact.zipcode}">Zip Code</td>
              <td style="text-align: center;"th:text="${contact.city}">City</td>
              <td style="text-align: center;"th:text="${contact.state}">State</td>
-             <td>
-             
-             <!-- Edit Form -->
-             <a th:href ="@{/AddressBook/editForm(id=${contact.id})}">Edit </a>
-             </td>
-             <td>
-             
-          <!-- Delete Form -->
-              <a th:href ="@{/AddressBook/delete(id=${contact.id})}"> Delete </a>
+              <td><a th:href ="@{/AddressBook/editForm(id=${contact.id})}">Edit </a></td>
+             <td><a th:href ="@{/AddressBook/delete(id=${contact.id})}"> Delete </a> </td>
+            
+            
                 </tr>
               </tbody>
             </table>

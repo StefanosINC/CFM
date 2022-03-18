@@ -1,6 +1,7 @@
 <html xmls:th="http://thymeleaf.org" xmls:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
+
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>CFM</title>
@@ -9,15 +10,16 @@
     <!-- BootStrap Studio Imports Style Sheets -->
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/styles.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
-  
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
+
   	<!-- BootStrap Studio Script links -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="../assets/js/script.min.js"></script>
     
-    
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+   
   
 
     
@@ -27,4 +29,5 @@
     		<div align="center">
 	<!--Header Fragment -->
 		<div th:replace="layouts/navbar :: header">My Header</div>
+		</div>
     </html>

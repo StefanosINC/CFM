@@ -17,9 +17,18 @@
                 <div class="form-group mb-3">
                 
                <!-- Delete HREF Tags and Cancel -->
- 			<a th:href ="@{/AddressBook/processdelete}"> DELETE </a>
+                 <form action ="#" th:action="@{/AddressBook/processdelete(id=${contact.id})}" method="POST">
+                 <button class="btn btn-primary d-block w-100" id="submitButton" type="submit" style="color: rgb(255,255,255);background-color: #00b5a8;">Delete Contact</button>
+                	
+                	
+                 </form>
+                   <form action ="#" th:action="@{/}" method="POST">
+                 <button class="btn btn-primary d-block w-100" id="submitButton" type="submit" style="color: rgb(255,255,255);background-color: #00b5a8;">Cancel Contact</button>
+                	
+                	
+                 </form>
  			
-            <a th:href ="@{/AddressBook/}"> CANCEL </a>
+ 			
                 
            
         </div> 
