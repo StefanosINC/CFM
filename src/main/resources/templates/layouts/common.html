@@ -1,24 +1,24 @@
-<html xmls:th="http://thymeleaf.org" xmls:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmls:th="http://thymeleaf.org" xmls:layout="http://www.ultraq.net.nz/thymeleaf/layouts">
+<div th:fragment="header">
+<div align="center">
+</div>  
 
-
-    <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
+<nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
         <div class="container-fluid"><a class="navbar-brand" href="#"></a><img src="../../assets/img/CFM.png" style="width: 65px;"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link active">CFM Take Home</a></li>
+                
                     <li class="nav-item"><a class="nav-link active" href="/login">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<!--Page Title and Log --> 
+ 
 
-<h2 style=color:white th:text="${title}"> Default Message Text</h2><br/>
 </div>
 
-<!--Common Footer Fragment -->
-<div th:fragment="footer">
+</div>
 </div>
 </html>
 

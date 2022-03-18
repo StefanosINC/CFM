@@ -21,18 +21,35 @@ import com.cfm.models.AddressBookModel;
 import com.cfm.models.UserModel;
 import com.cfm.business.AddressBookModelBusinessInterface;
 
-
+/*
+ * This is the controller for the UserModel services
+ * This controller is responsible for inheriting the Business Services instantiated and then passing them to the view MVC.
+ * @Controller, @RequestMapping
+ */
 @Controller
 @RequestMapping("/")
 public class UserModelController {
 
+	/*
+	 * Autowire the UserModelInterface
+	 */
 	@Autowired
 	private UserModelBusinessInterface service;
 	
+	/*
+	 * Autowire the AddressBookDataInterface Service
+	 */
 	@Autowired
 	private AddressBookDataInterface AddressBookService;
 	
 	
+	/*
+	 * This will be the first page the user sees!
+	 * Route this to the Register
+	 * Instantiate a userModel object
+	 * @Param - @Getmapping, Model
+	 * @Return, Register.html
+	 */
 	@GetMapping(path= {"/"})
 	public String RegisterForm(Model model)
 	{
@@ -42,6 +59,13 @@ public class UserModelController {
 	}
 	
 	
+	/*
+	 * This is the Register Action Method
+	 * This method will call on the Register method in the service to process the new user.
+	 * This also invokes datavalidation.
+	 * @Param -@Valid UserModel UserModel, BindingResult BindingResult, Model model
+	 * @Return - login.html, and a UserModel
+	 */
 	@PostMapping("/doRegister")
 	public String doRegister(@Valid UserModel UserModel, BindingResult BindingResult, Model model) {
 		
@@ -63,7 +87,12 @@ public class UserModelController {
 	
 	
 	
-	
+	/*
+	 * This is the original Route for the Login service
+	 * This instantiates a UserModel object
+	 * @Param - Model,
+	 * @Return - login.html and passes in the UserModel if it wasnt created before
+	 */
 	@GetMapping(path= "/login")
 	public String displayLogin(Model model) {
 		
@@ -74,6 +103,14 @@ public class UserModelController {
 		
 	}
 	
+	
+	/*
+	 * This is the Login Action method that actually proceeds the login
+	 * This method is responsible for validating the user is in teh DB and returning the addresbook page
+	 * This also invokes data validation
+	 * @Param - @Valid UserModel UserModel, BindingResult BindingResult, Model model
+	 * @Return - a sucessfull, or failure login attempt, and the addresbook!
+	 */
 	@PostMapping("/doLogin")
 	public String LoginForm(@Valid UserModel UserModel, BindingResult BindingResult, Model model) {
 		
