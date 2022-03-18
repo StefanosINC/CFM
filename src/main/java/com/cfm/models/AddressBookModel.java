@@ -41,6 +41,9 @@ public class AddressBookModel {
 
 	
 	
+	/*
+	 * AddressBookModel Constructor
+	 */
 public AddressBookModel(long id, String locationname, String phone, String street, String zipcode,
 		String city, String state) {
 	super();
@@ -52,15 +55,19 @@ public AddressBookModel(long id, String locationname, String phone, String stree
 	this.city = city;
 	this.state = state;
 }
+
+/*
+ * Default Constructor
+ */
 public AddressBookModel() {
 	
 }
 
 
 
-
-
-
+/*
+ * Getters and Setters 
+ */
 
 public long getId() {
 	return id;

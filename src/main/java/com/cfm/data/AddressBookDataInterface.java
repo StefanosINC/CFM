@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.cfm.models.AddressBookModel;
 
+/*
+ * Address Book Interface. 
+ * This class is responsible for the AddressBookDataService.
+ * @Param - AddressBookModel, int id, and List of AddressBookModel
+ */
 public interface AddressBookDataInterface{
 
 	

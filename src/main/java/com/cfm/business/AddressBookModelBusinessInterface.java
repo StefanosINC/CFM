@@ -3,7 +3,10 @@ package com.cfm.business;
 import java.util.List;
 
 import com.cfm.models.AddressBookModel;
-
+/*
+ * Interface for the AddressBook functionality CRUD and findbyID
+ * This interface instantiates the Spring Beans and calls the Init and Destroy methods
+ */
 public interface AddressBookModelBusinessInterface {
 
 	public List<AddressBookModel> FindAllContacts();

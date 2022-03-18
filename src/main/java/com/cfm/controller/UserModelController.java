@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.cfm.business.AddressBookModelBusinessInterface;
+
 import com.cfm.business.AddressBookModelBusinessService;
 import com.cfm.business.UserModelBusinessInterface;
 import com.cfm.business.UserModelBusinessService;
+import com.cfm.data.AddressBookDataInterface;
 import com.cfm.models.AddressBookModel;
 import com.cfm.models.UserModel;
-
+import com.cfm.business.AddressBookModelBusinessInterface;
 
 
 @Controller
@@ -28,8 +29,9 @@ public class UserModelController {
 	@Autowired
 	private UserModelBusinessInterface service;
 	
-	@Autowired 
-	AddressBookModelBusinessService AddressBookService;
+	@Autowired
+	private AddressBookDataInterface AddressBookService;
+	
 	
 	@GetMapping(path= {"/"})
 	public String RegisterForm(Model model)
