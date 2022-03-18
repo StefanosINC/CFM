@@ -12,11 +12,9 @@
     <section class="register-photo" style="background-color: transparent;">
         <div class="form-container" style="margin-top: 40px;">
            
-           
-           
-           
-           <form action ="#" th:action="@{edit}" th:object="${addressBookModel}" method="post" style="height: 525px;">
-           	<input type="hidden" name="id" th:field="*{id}"> 
+           <!-- Form for the Edit Contact -->
+  		  <form action ="#" th:action="@{edit}" th:object="${addressBookModel}" method="post" style="height: 525px;">
+   		<input type="hidden" name="id" th:field="*{id}"> 
       						
 			<table>
 			
@@ -27,15 +25,12 @@
    			
     			     <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{phone}" placeholder="phone"></div>
 			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{street}"placeholder="street"></div>
-		
    
    				 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{zipcode}"placeholder="zipcode"></div>
     			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{city}"placeholder="city"></div>
 			
     			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{state}"placeholder="state"></div>
-			
-			
-                <div class="form-group mb-3">
+		
                 	
 			
                 <div class="form-group mb-3">
@@ -45,7 +40,7 @@
                 	
                 	
                 				</div>
-                				<!-- This doesnt work yet -->
+                
                 <a class="already" href="/AddressBook/">Want to go back? Click here to do so! </a>
                 </table>
                 

@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>CFM</title>
-   <!-- <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/styles.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous"> -->
+
 </head>
 
 <body>
@@ -42,6 +40,8 @@
                 </tr>
               </thead>
               <tbody>
+              
+              <!-- Loop through the AddressBook -->
                 <tr th:each="contact : ${contacts}">
                <td style="text-align: center;" th:text="${contact.locationname}">Location Name</td>
                 <td style="text-align: center;"th:text="${contact.phone}">Phone</td>
@@ -50,11 +50,13 @@
              <td style="text-align: center;"th:text="${contact.city}">City</td>
              <td style="text-align: center;"th:text="${contact.state}">State</td>
              <td>
+             
+             <!-- Edit Form -->
              <a th:href ="@{/AddressBook/editForm(id=${contact.id})}">Edit </a>
              </td>
              <td>
              
-          
+          <!-- Delete Form -->
               <a th:href ="@{/AddressBook/delete(id=${contact.id})}"> Delete </a>
                 </tr>
               </tbody>
@@ -66,10 +68,7 @@
   </div>
 </div>
 </div>
-   <!-- <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../../assets/js/script.min.js"></script>  -->
+
 </body>
 
 </html>

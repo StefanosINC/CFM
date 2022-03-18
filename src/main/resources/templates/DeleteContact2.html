@@ -12,30 +12,17 @@
     <section class="register-photo" style="background-color: transparent;width: 1206px;">
         <div class="form-container" style="margin-top: 40px;">
         	
-            <form th:object="${contact}" th:action="@{/AddressBook/processdelete}" method="post"style="height: 212px;width: 443px;margin-top: 73px; margin-bottom: 73px; padding: 134px 60px;max-width: 50px;min-width: -10px; margin-left: auto !important; margin-right: auto !important;">
-            <input hidden th:field="*{id}"></input>
+            
                 <h2 class="text-center" style="height: 35px;font-size: 31px;"><strong>Are you sure you want to delete?</strong></h2>
-    
-                <div id="passwordsError" style="display: none;margin-bottom: 16.5px;"><span id="errorMessage" class="text-danger" style="font-size:13px;"></span></div>
                 <div class="form-group mb-3">
                 
                 
-                <button class="btn btn-primary d-block w-100" id="submitButton" type="submit" style="color: rgb(255,255,255);background-color: #00b5a8;min-width: 115px;height: 69px;font-size: 33px;">Confirm</button>
+ 			<a th:href ="@{/AddressBook/processdelete}"> DELETE </a>
+ 			
+            <a th:href ="@{/AddressBook/}"> CANCEL </a>
                 
-                
-                
-                
-                
-                <form id = "back" th:action = "@{/login}"  method="post">
-
-                <button class="btn btn-primary d-block w-100" id="back" type="submit" style="color: rgb(255,255,255);background-color: #00b5a8;min-width: 137px;height: 78px;max-width: -6px;font-size: 33px;">Cancel</button>
-                
-                
-					</form>
-        
-                </div>
-            </form>
            
+        </div> 
         </div>
     </section>
  
@@ -43,3 +30,7 @@
 
 </html>
 <style>
+a{
+	padding: 50px;
+	
+}

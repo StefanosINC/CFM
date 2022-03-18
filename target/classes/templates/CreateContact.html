@@ -14,7 +14,7 @@
            
            
            
-           
+           <!-- Create Contact Form -->
            <form action ="#" th:action="@{doCreateContact}" th:object="${addressBookModel}" method="post" style="height: 525px;">
 			<table>
                 <h2 class="text-center"> Create a Contact</h2>
@@ -22,8 +22,8 @@
 		
    
    			
-    			     <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{phone}" placeholder="phone"></div>
-			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{street}"placeholder="street"></div>
+    			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{phone}" placeholder="phone"></div>
+			 	<div class="form-group mb-3"><input class="form-control" type="text" th:field="*{street}"placeholder="street"></div>
 		
    
    				 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{zipcode}"placeholder="zipcode"></div>
@@ -40,7 +40,7 @@
                 	
                 	
                 				</div>
-                				<!-- This doesnt work yet -->
+                				<!-- Error Reporting and Reference Back -->
                 <a class="already" href="/AddressBook/">Back to AddressBook? Click here to do so </a>
                 </table>
                 <div th:if="${#fields.hasErrors('*')}">List of Errors</div>
