@@ -16,6 +16,7 @@
             <table id="example" style="width:100%" class="table table-striped table-bordered">
             
             <a th:href ="@{/AddressBook/CreateContactForm}"> Create Book Contact </a>
+            
               <thead>
                 <tr>
                 
@@ -26,8 +27,8 @@
                   <th>ZipCode</th>
                   <th>City</th>
                   <th>State</th>
-                  <th>Edit</th>
-                  <th>Delete<th>
+                <th>Edit</th>
+                  <th>Delete</th> 
                   
                 </tr>
               </thead>
@@ -42,7 +43,7 @@
              <td style="text-align: center;"th:text="${contact.city}">City</td>
              <td style="text-align: center;"th:text="${contact.state}">State</td>
               <td><a th:href ="@{/AddressBook/editForm(id=${contact.id})}">Edit </a></td>
-             <td><a th:href ="@{/AddressBook/delete(id=${contact.id})}"> Delete </a> </td>
+             <td><a th:href ="@{/AddressBook/delete(id=${contact.id})}"> Delete </a> </td> 
             
             
                 </tr>
