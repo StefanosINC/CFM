@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import com.cfm.business.AddressBookModelBusinessInterface;
 import com.cfm.data.AddressBookDataInterface;
 import com.cfm.models.AddressBookModel;
 
@@ -32,9 +32,9 @@ public class AddressBookController {
 	 * Autwire the DataInterface 
 	 * Should be the Business Service
 	 */
-	@Autowired 
-	AddressBookDataInterface bookservice;
-	
+
+	@Autowired
+	private AddressBookModelBusinessInterface bookservice;
 
 	/*
 	 * This is responsible for displaying the AddressBook.
@@ -62,7 +62,10 @@ public class AddressBookController {
 	@GetMapping("/CreateContactForm")
 	public String ContactForm(Model model) {
 		
+		// model 
 		model.addAttribute("addressBookModel", new AddressBookModel());
+		
+		// return html
 		return "CreateContact";
 	}
 	
@@ -85,8 +88,9 @@ public class AddressBookController {
 			return "CreateContact";
 		}
 		
+		// create the book
 		bookservice.create(addressBookModel);
-		
+		//  declare the list 
 		List<AddressBookModel> contacts = bookservice.FindAllContacts();
 		
 		
@@ -106,8 +110,8 @@ public class AddressBookController {
 	@GetMapping("/editForm")
 	public String displayEditForm(@RequestParam("id") int id, Model model)
 	{
-		
-		AddressBookModel EditContact = bookservice.findById(id);
+		// establish a editContact Object = the the ID
+		AddressBookModel EditContact = bookservice.FindById(id);
 		System.out.println("EditContact info Incomming: " + EditContact.getId());
 		model.addAttribute("title", "Edit order");			
 		model.addAttribute("addressBookModel", EditContact);		
@@ -134,11 +138,11 @@ public class AddressBookController {
 				return "EditContact";
 			}
 			
-			
+			// set the id
 			addressBookModel.setId(id);
-			
+			// update 
 			bookservice.update(addressBookModel);	
-			
+			// declare list
 			List<AddressBookModel> contacts = bookservice.FindAllContacts();
 			
 			model.addAttribute("contacts", contacts);
@@ -156,8 +160,8 @@ public class AddressBookController {
 	@GetMapping("/delete")
 	public String displayDeleteForm(@RequestParam("id") int id, Model model) 
 	{	
-		
-		AddressBookModel DeleteContact = bookservice.findById(id);
+		// declare the object = to the ID of the requested delete
+		AddressBookModel DeleteContact = bookservice.FindById(id);
 			
 		
 			System.out.println(id);
@@ -182,8 +186,10 @@ public class AddressBookController {
 	{	
 		System.out.println("Index: " + order);
 		
+		// remove contact with casting it as int
 			bookservice.RemoveContact((int) order.getId());	
 			System.out.println("Deleted Album is " + order);
+			// return the list
 			List<AddressBookModel> contacts = bookservice.FindAllContacts();
 			
 			model.addAttribute("title", "Home");

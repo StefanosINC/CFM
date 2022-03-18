@@ -76,6 +76,7 @@ public class UserModelController {
 			return "register";
 		}
 		
+		// register a new user
 		service.Register(UserModel);
 		System.out.println(UserModel);
 		
@@ -121,7 +122,7 @@ public class UserModelController {
 			return "login";
 		}
 		
-		
+		// if new user fails then return login else continue
 		if(service.Login(UserModel) == false) {
 			model.addAttribute("title", "Credentials are Incorrect");
 			System.out.println("fail");
@@ -129,16 +130,10 @@ public class UserModelController {
 		
 	}
 	
-		
-		
-		
+		// return the list
 		List<AddressBookModel> contact = AddressBookService.FindAllContacts();
-	
-	
 		model.addAttribute("title", "AddressBook");
 		model.addAttribute("contacts", contact);
-		
-		System.out.println(contact.size());
 		return "book";
 		
 	}

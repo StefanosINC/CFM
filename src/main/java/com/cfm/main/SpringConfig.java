@@ -23,7 +23,7 @@ public class SpringConfig {
 	 * AddressBook Spring Bean 
 	 */
 	@Bean(name="AddressBookModelBusinessService", initMethod="init", destroyMethod="destroy")
-	
+	@Primary
 	public AddressBookModelBusinessInterface getAddressBook()
 	{		return new AddressBookModelBusinessService();
 	}

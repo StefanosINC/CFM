@@ -52,6 +52,7 @@ public class AddressBookDataService implements AddressBookDataInterface {
 	@Override
 	public List<AddressBookModel> FindAllContacts() {
 		
+		// sql statement
 		String sql = "Select * FROM ADDRESSBOOK";
 		List<AddressBookModel> contacts = new ArrayList<AddressBookModel>();
 		
@@ -95,6 +96,7 @@ public class AddressBookDataService implements AddressBookDataInterface {
 		try {
 			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, id);
 			srs.next();
+			// set contact to the new AddressBookModel Object
 			contact = new AddressBookModel(	
 					srs.getLong("ID"),
 					srs.getString("LOCATIONNAME"),
@@ -122,8 +124,10 @@ public class AddressBookDataService implements AddressBookDataInterface {
 	@Override
 	public boolean create(AddressBookModel contact) {
 	
+		// sql statement
 		String sql = "INSERT INTO ADDRESSBOOK(LOCATIONNAME, PHONE, STREET, ZIPCODE, CITY, STATE) VALUES (?, ? , ? ,?, ?, ?)";
 		try {
+			// set the newrow to the template object
 			int NewRow = jdbcTemplateObject.update(sql, contact.getLocationname(), contact.getPhone(), contact.getStreet(), contact.getZipcode(), contact.getCity(), contact.getState());
 			return NewRow == 1 ? true : false;
 			
@@ -147,8 +151,11 @@ public class AddressBookDataService implements AddressBookDataInterface {
 	@Override
 	public boolean update(AddressBookModel contact) {
 		
+		// sql statement
 		String sql = "UPDATE ADDRESSBOOK SET LOCATIONNAME = ?, PHONE = ?, STREET = ?, ZIPCODE = ?, CITY = ?, STATE =? WHERE id = ?";
 		
+	
+		//try catch the row
 		try {
 			int UpdateRow = jdbcTemplateObject.update(sql,  contact.getLocationname(), contact.getPhone(), contact.getStreet(), contact.getZipcode(), contact.getCity(), contact.getState(), contact.getId());
 			return UpdateRow == 1 ? true : false;

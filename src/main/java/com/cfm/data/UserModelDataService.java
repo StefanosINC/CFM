@@ -52,9 +52,11 @@ public class UserModelDataService implements UserModelDataInterface {
 	@Override
 	public boolean Register(UserModel user) {
 		
+		// sql
 			String sql = "INSERT INTO users(USERNAME, PASSWORD) VALUES(?,?)";
 		
 		try {
+			// row set
 			int rows = jdbcTemplateObject.update(sql, user.getUsername(), user.getPassword());
 			return rows == 1 ? true : false;
 		
@@ -74,10 +76,13 @@ public class UserModelDataService implements UserModelDataInterface {
 	 */
 	@Override
 	public boolean Login(UserModel user) {
+		
+		// sql
 		  String sql = "SELECT * FROM users WHERE USERNAME = '" + user.getUsername() + "' AND PASSWORD = '"
 	                + user.getPassword() + "'";
 	 try {
 	
+		 // login set
 		 SqlRowSet LoginRowSet = jdbcTemplateObject.queryForRowSet(sql);
 	
 		 
@@ -87,6 +92,7 @@ public class UserModelDataService implements UserModelDataInterface {
 			 return true;
 			 
 		 }
+		 // catch
 	 }	 catch(Exception E) {
 		 System.out.println("Login failed");
 			 E.printStackTrace();
