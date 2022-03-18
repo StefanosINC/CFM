@@ -1,26 +1,14 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:layout="http://www.ultraq.net.nx/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>CFM</title>
-    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/css/styles.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
+
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md" id="app-navbar">
-        <div class="container-fluid"><a class="navbar-brand" href="#"></a><img src="../../assets/img/CFM.png" style="width: 65px;"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link active">CFM Take Home</a></li>
-                
-                    <li class="nav-item"><a class="nav-link active" href="/login">Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+   
     <section class="register-photo" style="background-color: transparent;">
         <div class="form-container" style="margin-top: 40px;">
            
@@ -33,19 +21,18 @@
 			<table>
 			
                 <h2 class="text-center"> Edit Contact Form </h2>
-               <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{locationname}" placeholder="locationname"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('locationname')}" th:errors="*{locationname}">Location Name Error </h5></td>
+               <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{locationname}" placeholder="locationname"></div>
 		
    
    			
-    			     <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{phone}" placeholder="phone"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"> Phone Error </h5></td>
-			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{street}"placeholder="street"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"> Street Error </h5></td>
+    			     <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{phone}" placeholder="phone"></div>
+			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{street}"placeholder="street"></div>
 		
    
-   				 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{zipcode}"placeholder="zipcode"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('zipcode')}" th:errors="*{zipcode}">zipcode Name Error </h5></td>
+   				 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{zipcode}"placeholder="zipcode"></div>
+    			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{city}"placeholder="city"></div>
 			
-    			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{city}"placeholder="city"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">city Name Error </h5></td>
-			
-    			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{state}"placeholder="state"></div><td><h5 style="color:red" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">state Name Error </h5></td>
+    			 <div class="form-group mb-3"><input class="form-control" type="text" th:field="*{state}"placeholder="state"></div>
 			
 			
                 <div class="form-group mb-3">
@@ -70,10 +57,7 @@
             </form>
         </div>
     </section>
-    <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../../assets/js/script.min.js"></script>
+  
 </body>
 
 </html>
